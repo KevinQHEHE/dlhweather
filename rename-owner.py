@@ -18,6 +18,8 @@ def rename_user_in_all_files(root_folder, old_username, new_username, requiredFi
     for path in requiredFiles:
         file_path = os.path.join(root_folder, path)
         rename_user_in_file(file_path, old_username, new_username)
+        # # Thay thế cứng từ 'hadoopdlhweather' thành 'dlhweather'
+        # rename_user_in_file(file_path, 'hadoopdlhweather', 'dlhweather')
 
 def CanReadAndWriteAllFiles(root_folder, requiredFiles):
     for path in requiredFiles:
