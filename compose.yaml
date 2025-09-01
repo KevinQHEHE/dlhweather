@@ -17,4 +17,6 @@ services:
       - "8088:8088"
     networks:
       - hadoop-net
-    command: /bin/bash -c "service ssh start; tail -f /dev/null"
+    # command: /bin/bash -c "service ssh start; tail -f /dev/null"
+    command: /bin/bash -c "rm -f /home/dlhweather/.ssh/known_hosts && service ssh start && tail -f /dev/null"
+

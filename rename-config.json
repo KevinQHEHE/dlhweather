@@ -1,7 +1,6 @@
 {
     "requiredFiles": [
         "windows/build-image.bat",
-        "linux/build-image.sh",
         "compose-dynamic.yaml",
         "compose.yaml",
         "config-hadoop/compose.yaml",
@@ -18,12 +17,9 @@
         "config-hadoop/slave/config/yarn-site.xml",
         "config-hadoop/slave/Dockerfile",
         "windows/resize-number-slaves.bat",
-        "linux/resize-number-slaves.sh",
         "windows/start-cluster.bat",
-        "linux/start-cluster.sh",
-        "linux/stop-cluster.sh",
         "windows/stop-cluster.bat",
-        "hamu-config.json"
+        "rename-config.json"
     ],
     "ownerName": "dlhweather"
 }

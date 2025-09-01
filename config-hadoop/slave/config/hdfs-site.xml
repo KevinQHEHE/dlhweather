@@ -27,14 +27,14 @@ limitations under the License. See accompanying LICENSE file.
 
 		<name>dfs.namenode.name.dir</name>
 
-		<value>/home/hadoopdlhweather/hadoop/hadoop_data/hdfs/namenode</value>
+		<value>/home/dlhweather/hadoop/hadoop_data/hdfs/namenode</value>
 	</property>
 
 	<property>
 
 		<name>dfs.datanode.data.dir</name>
 
-		<value>/home/hadoopdlhweather/hadoop/hadoop_data/hdfs/datanode</value>
+		<value>/home/dlhweather/hadoop/hadoop_data/hdfs/datanode</value>
 	</property>
 
 </configuration>

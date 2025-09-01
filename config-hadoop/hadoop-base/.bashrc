@@ -57,16 +57,16 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}[033[01;32m]u@h[033[00m]:[033[01;34m]w[033[00m]$ '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PS1='${debian_chroot:+($debian_chroot)}u@h:w$ '
 fi
 unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    PS1="[e]0;${debian_chroot:+($debian_chroot)}u@h: wa]$PS1"
     ;;
 *)
     ;;
@@ -94,7 +94,7 @@ alias l='ls -CF'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+# alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '''s/^s*[0-9]+s*//;s/[;&|]s*alert$//''')"'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -115,8 +115,18 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# Force prompt for dlhweather user (luôn ở cuối file để không bị ghi đè)
+if [ "$USER" = "dlhweather" ]; then
+    export PS1="dlhweather@$HOSTNAME:\w$ "
+fi
+# Đảm bảo prompt luôn là dlhweather@dlhweather-master
+if [ "$USER" = "dlhweather" ] && [ "$HOSTNAME" = "dlhweather-master" ]; then
+    export PS1="dlhweather@dlhweather-master:\w$ "
+fi
+
 export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
-export HADOOP_HOME=/home/hadoopdlhweather/hadoop
+export HADOOP_HOME=/home/dlhweather/hadoop
 export PATH=$PATH:$HADOOP_HOME/bin
 export PATH=$PATH:$HADOOP_HOME/sbin
 export HADOOP_MAPRED_HOME=$HADOOP_HOME

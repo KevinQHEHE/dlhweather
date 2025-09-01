@@ -36,21 +36,21 @@ if defined STATUS (
 echo All containers are running!
 
 echo Copying workers file to master container...
-docker cp config-hadoop\master\config\workers master:/home/hadoopdlhweather/hadoop/etc/hadoop/workers
+docker cp config-hadoop\master\config\workers master:/home/dlhweather/hadoop/etc/hadoop/workers
 if errorlevel 1 (
     echo Failed to copy workers file. Exiting...
     exit /b 1
 )
 
 echo Converting workers file to Unix format...
-docker exec master dos2unix /home/hadoopdlhweather/hadoop/etc/hadoop/workers
+docker exec master dos2unix /home/dlhweather/hadoop/etc/hadoop/workers
 if errorlevel 1 (
     echo Failed to convert workers file. Exiting...
     exit /b 1
 )
 
 echo Restarting the cluster...
-docker exec -it master /bin/bash -c "su - hadoopdlhweather"
+docker exec -it master /bin/bash -c "su - dlhweather"
 if errorlevel 1 (
     echo Failed to restart the cluster. Exiting...
     exit /b 1

@@ -22,7 +22,7 @@ limitations under the License. See accompanying LICENSE file.
 
 		<name>hadoop.tmp.dir</name>
 
-		<value>/home/hadoopdlhweather/tmp</value>
+		<value>/home/dlhweather/tmp</value>
 
 		<description>Temporary Directory.</description>
 
